@@ -18,3 +18,14 @@ async def upload_file(
     await file_service.save_file(file)
 
     return {"filename": file.filename}
+
+
+@router.get("/upload")
+def get(
+    file_service: Annotated[FileService, Depends(FileService)],
+    id: str = Query(
+        default=None,
+        max_length=32,
+    ),
+):
+    pass
